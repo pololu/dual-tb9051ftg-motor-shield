@@ -6,15 +6,11 @@ void stopIfFault()
 {
   if (md.getM1Fault())
   {
-    md.disableDrivers();
-    delay(1);
     Serial.println("M1 fault");
     while (1);
   }
   if (md.getM2Fault())
   {
-    md.disableDrivers();
-    delay(1);
     Serial.println("M2 fault");
     while (1);
   }
