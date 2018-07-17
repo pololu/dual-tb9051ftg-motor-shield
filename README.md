@@ -1,7 +1,7 @@
 # Arduino library for the Pololu Dual TB9051FTG Motor Driver Shield
 
 Version: 1.0.0 <br>
-Release date: 2018-04-11 <br>
+Release date: 2018-07-16 <br>
 [![Build Status](https://travis-ci.org/pololu/dual-tb9051ftg-motor-shield.svg?branch=master)](https://travis-ci.org/pololu/dual-tb9051ftg-motor-shield) <br>
 [www.pololu.com](https://www.pololu.com/)
 
@@ -76,7 +76,7 @@ detected, a message is sent over serial.
   unsigned char M2DIAG, unsigned char M2OCM)` <br>
   Alternate constructor for shield connections remapped by user. If M1PWM
   and M2PWM are remapped, it will try to use analogWrite instead of timer1.
-- `void init()` <br> Initialize pinModes and maybe timer1.
+- `void init()` <br> Initialize pinModes and timer1 if applicable.
 - `void setM1Speed(int speed)` <br> Set speed and direction for
   motor 1. Speed should be between -400 and 400. 400 corresponds to
   motor current flowing from M1A to M1B. -400 corresponds to motor
@@ -97,16 +97,14 @@ detected, a message is sent over serial.
 - `void flipM2(bool flip)` <br> Flip the direction meaning of the speed
   passed to the setSpeeds function for motor 2. The default direction
   corresponds to flipM2(false) having been called.
-- `void enableM1Driver()` <br> Enables the MOSFET driver for motor 1.
-- `void enableM2Driver()` <br> Enables the MOSFET driver for motor 2.
-- `void enableDrivers()` <br> Enables the MOSFET drivers for motor 1 and
+- `void enableM1Driver()` <br> Enables the driver for motor 1.
+- `void enableM2Driver()` <br> Enables the driver for motor 2.
+- `void enableDrivers()` <br> Enables the drivers for motor 1 and
   motor 2.
-- `void disableM1Driver()` <br> Puts the MOSFET driver for motor 1 into
-  low-power sleep mode.
-- `void disableM2Driver()` <br> Puts the MOSFET driver for motor 2 into
-  low-power sleep mode.
-- `void disableDrivers()` <br> Puts the MOSFET drivers for motor 1 and
-  2 into low-power sleep mode.
+- `void disableM1Driver()` <br> Disables the driver for motor 1.
+- `void disableM2Driver()` <br> Disables the driver for motor 2.
+- `void disableDrivers()` <br> Disables the drivers for motor 1 and
+  motor 2.
 - `unsigned int getM1CurrentMilliamps()` <br> Returns current reading
   from motor 1 in milliamps.
 - `unsigned int getM2CurrentMilliamps()` <br> Returns current reading

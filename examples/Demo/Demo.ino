@@ -7,14 +7,14 @@ void stopIfFault()
   if (md.getM1Fault())
   {
     md.disableDrivers();
-  delay(1);
+    delay(1);
     Serial.println("M1 fault");
     while (1);
   }
   if (md.getM2Fault())
   {
     md.disableDrivers();
-  delay(1);
+    delay(1);
     Serial.println("M2 fault");
     while (1);
   }
@@ -23,8 +23,8 @@ void stopIfFault()
 void setup()
 {
   Serial.begin(115200);
-  while(!Serial) { delay(10); }
-  Serial.println("Dual TB9051 Motor Shield");
+  while (!Serial) { delay(10); }
+  Serial.println("Dual TB9051FTG Motor Shield");
   md.init();
 
   // Uncomment to flip a motor's direction:
@@ -35,7 +35,6 @@ void setup()
 void loop()
 {
   md.enableDrivers();
-  delay(1);  // The drivers require a maximum of 1ms to elapse when brought out of sleep mode.
 
   for (int i = 0; i <= 400; i++)
   {
@@ -109,6 +108,6 @@ void loop()
     delay(2);
   }
 
-  md.disableDrivers(); // Put the MOSFET drivers into sleep mode.
+  md.disableDrivers();
   delay(500);
 }
