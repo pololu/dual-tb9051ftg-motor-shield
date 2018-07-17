@@ -1,6 +1,6 @@
-#include "DualTB9051MotorShield.h"
+#include "DualTB9051FTGMotorShield.h"
 
-DualTB9051MotorShield md;
+DualTB9051FTGMotorShield md;
 
 void stopIfFault()
 {

@@ -1,4 +1,4 @@
-#include "DualTB9051MotorShield.h"
+#include "DualTB9051FTGMotorShield.h"
 
 boolean DualTB9051FTGMotorShield::_flipM1 = false;
 boolean DualTB9051FTGMotorShield::_flipM2 = false;
@@ -140,13 +140,13 @@ void DualTB9051FTGMotorShield::setM2Speed(int speed)
     analogWrite(_M2PWM,speed * 51 / 80); // map 400 to 255
   #endif
 
-  if (reverse ^ _flipM1) // flip if speed was negative or _flipM1 setting is active, but not both
+  if (reverse ^ _flipM2) // flip if speed was negative or _flipM1 setting is active, but not both
   {
-    digitalWrite(_M1DIR, HIGH);
+    digitalWrite(_M2DIR, HIGH);
   }
   else
   {
-    digitalWrite(_M1DIR, LOW);
+    digitalWrite(_M2DIR, LOW);
   }
 }
 
