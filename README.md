@@ -21,7 +21,7 @@ The
 [Dual TB9051FTG Motor Driver Shield](https://www.pololu.com/catalog/product/2520)
 can be purchased on Pololu's website. Before continuing, careful
 reading of the product page as well as the
-[motor shield user's guide](https://www.pololu.com/docs/0J55) is
+motor shield user's guide is
 recommended.
 
 ### Software
@@ -112,4 +112,4 @@ detected, a message is sent over serial.
 
 ## Version history
 
-* 1.0.0 (2012-06-07): Original release.
+* 1.0.0 (2018-07-16): Original release.
