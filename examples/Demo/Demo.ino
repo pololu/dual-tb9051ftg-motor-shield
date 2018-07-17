@@ -23,7 +23,6 @@ void stopIfFault()
 void setup()
 {
   Serial.begin(115200);
-  while (!Serial) { delay(10); }
   Serial.println("Dual TB9051FTG Motor Shield");
   md.init();
 
@@ -35,6 +34,7 @@ void setup()
 void loop()
 {
   md.enableDrivers();
+  delay(1); // wait for drivers to be enabled so fault pins are no longer low
 
   for (int i = 0; i <= 400; i++)
   {
@@ -47,7 +47,7 @@ void loop()
     }
     delay(2);
   }
-  
+
   for (int i = 400; i >= -400; i--)
   {
     md.setM1Speed(i);
@@ -59,7 +59,7 @@ void loop()
     }
     delay(2);
   }
-  
+
   for (int i = -400; i <= 0; i++)
   {
     md.setM1Speed(i);
@@ -83,7 +83,7 @@ void loop()
     }
     delay(2);
   }
-  
+
   for (int i = 400; i >= -400; i--)
   {
     md.setM2Speed(i);
@@ -95,7 +95,7 @@ void loop()
     }
     delay(2);
   }
-  
+
   for (int i = -400; i <= 0; i++)
   {
     md.setM2Speed(i);
