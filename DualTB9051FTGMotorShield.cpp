@@ -88,12 +88,12 @@ void DualTB9051FTGMotorShield::init()
 // Set speed for motor 1, speed is a number between -400 and 400
 void DualTB9051FTGMotorShield::setM1Speed(int speed)
 {
-  unsigned char reverse = 0;
+  unsigned char forward = 1;
 
   if (speed < 0)
   {
     speed = -speed;  // Make speed a positive quantity
-    reverse = 1;  // Preserve the direction
+    forward = 0;  // Preserve the direction
   }
   if (speed > 400)  // Max PWM dutycycle
     speed = 400;
@@ -111,7 +111,7 @@ void DualTB9051FTGMotorShield::setM1Speed(int speed)
     analogWrite(_M1PWM,speed * 51 / 80); // map 400 to 255
   #endif
 
-  if (reverse ^ _flipM1) // flip if speed was negative or _flipM1 setting is active, but not both
+  if (forward ^ _flipM1) // DIR high if speed was negative or _flipM1 setting is active, but not both
   {
     digitalWrite(_M1DIR, HIGH);
   }
@@ -124,12 +124,12 @@ void DualTB9051FTGMotorShield::setM1Speed(int speed)
 // Set speed for motor 2, speed is a number between -400 and 400
 void DualTB9051FTGMotorShield::setM2Speed(int speed)
 {
-  unsigned char reverse = 0;
+  unsigned char forward = 1;
 
   if (speed < 0)
   {
     speed = -speed;  // Make speed a positive quantity
-    reverse = 1;  // Preserve the direction
+    forward = 0;  // Preserve the direction
   }
   if (speed > 400)  // Max PWM dutycycle
     speed = 400;
@@ -147,7 +147,7 @@ void DualTB9051FTGMotorShield::setM2Speed(int speed)
     analogWrite(_M2PWM,speed * 51 / 80); // map 400 to 255
   #endif
 
-  if (reverse ^ _flipM2) // flip if speed was negative or _flipM1 setting is active, but not both
+  if (forward ^ _flipM2) // DIR high if speed was negative or _flipM2 setting is active, but not both
   {
     digitalWrite(_M2DIR, HIGH);
   }
