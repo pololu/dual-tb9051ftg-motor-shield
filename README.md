@@ -1,7 +1,7 @@
 # Arduino library for the Pololu Dual TB9051FTG Motor Driver Shield
 
-Version: 1.0.0 <br>
-Release date: 2018-07-16 <br>
+Version: 2.0.0 <br>
+Release date: 2019-02-05 <br>
 [![Build Status](https://travis-ci.org/pololu/dual-tb9051ftg-motor-shield.svg?branch=master)](https://travis-ci.org/pololu/dual-tb9051ftg-motor-shield) <br>
 [www.pololu.com](https://www.pololu.com/)
 
@@ -21,7 +21,7 @@ The
 [Dual TB9051FTG Motor Driver Shield](https://www.pololu.com/catalog/product/2520)
 can be purchased on Pololu's website. Before continuing, careful
 reading of the product page as well as the
-motor shield user's guide is
+[motor shield user's guide](https://www.pololu.com/docs/0J78) is
 recommended.
 
 ### Software
@@ -112,4 +112,9 @@ detected, a message is sent over serial.
 
 ## Version history
 
+* 2.0.0 (2019-02-05): Fixed the way the sign of the `speed` value sets the motor
+  direction (positive numbers actually produce motor current from A to B and
+  light the green LED now, like on our other motor shields). Note that this
+  change will reverse the direction of any motors previously controlled using an
+  older version of this library.
 * 1.0.0 (2018-07-16): Original release.
