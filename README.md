@@ -2,7 +2,6 @@
 
 Version: 2.0.0 <br>
 Release date: 2019-02-05 <br>
-[![Build Status](https://travis-ci.org/pololu/dual-tb9051ftg-motor-shield.svg?branch=master)](https://travis-ci.org/pololu/dual-tb9051ftg-motor-shield) <br>
 [www.pololu.com](https://www.pololu.com/)
 
 ## Summary
